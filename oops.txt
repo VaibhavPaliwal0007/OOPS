@@ -8,28 +8,28 @@
 4. Polymorphism
 
 
-- <strong>Abstraction</strong> is hiding the implementation details of a class. When we dont know the internal details. 
+-> Abstraction is hiding the implementation details of a class. When we dont know the internal details. 
    for example -> take a TV, we don't want to know how it works, we just want to know that it is a TV. There are buttons(functions) present in the TV. We just press that 
                   button and it works.
                   Without knowing how the cout function is working, we just use it i.e a clear example of Abstraction. 
 
-- <strong>Encapsulation</strong> is the bundling of data so that users can't access raw data just operate on functions to avoid mishandling(not security). 
+-> Encapsulation is the bundling of data so that users can't access raw data just operate on functions to avoid mishandling(not security). 
    for example -> You went through bank, you will take a withdrawal slip(function) not directly go to the locker and take your cash. 
    
    We don't want to modify the value thats why we bundle the data. 
 
-- <strong>Inheritance</strong> is the process of creating a new class that inherits all the properties and methods from another class.
+-> Inheritance is the process of creating a new class that inherits all the properties and methods from another class.
    for example -> BMW is a car, TATA is a car, Toyota is a car, Honda is a car.
 
-- <strong>Polymorphism</strong> is the ability of an object to take on many forms.
+-> Polymorphism is the ability of an object to take on many forms.
    for example -> I am driving a car, (no matter which brand) I can drive any car if i know the basic principles.
                   a man at the same time is a father, a husband, an employee. So the same person posses different behavior in different situations.
    With the help of inheritance, we achieve polymorphism.
 
-********************************************************************************************************************************************************************
+**************************************************************************************************************************************************************************
 
 ####  What is a Class? (User-defined data type)
-- A class is a blueprint for creating objects. A class is a collection of properties and methods.
+-> A class is a blueprint for creating objects. A class is a collection of properties and methods.
 
    Suppose in a college there a students belong to varioous departments like Computer Science, Electronics, Mechanical, etc.
    Here each departments represents a class. On the broader side every student is human being which again belong to a class. 
@@ -37,15 +37,14 @@
    Therefore student is an object and human being is a class.
 
 ####  What is a Object?
-- An object is a real world entity. An object is an instance of a class.
+-> An object is a real world entity. An object is an instance of a class.
 
-********************************************************************************************************************************************************************
+**************************************************************************************************************************************************************************
 
-- For accessing the members of a class we use dot operator. 
+-> For accessing the members of a class we use dot operator. 
 
-  Below is the small example 
+   Below is the small example 
 
-```
    class Rectangle{
       public: 
        int length;
@@ -71,51 +70,46 @@
        
        return 0;
    }
-```
 
 
-###  What is constructor? 
-- A constructor is a special type of member function of a class which initializes objects of a class. Constructor is automatically called when object create. 
+####  What is constructor? 
+-> A constructor is a special type of member function of a class which initializes objects of a class. Constructor is automatically called when object create. 
    It is special member function of the class because it does not have any return type.
 
-    #### Types of constructors:
-
+   Types of constructors:
     1. Default constructor -> It is a constructor which does not have any parameter. It is also a default constructor.
-
     2. Parameterized constructor -> It is a constructor which has parameters. 
-       ```
-        Rectangle(int l, int b)   //if the class members name and parameters name are same then you can access the class member by this
-        {
-             length = l;
-             breadth = b;
-        }  //we can also use default values for the parameters.
-       ```
+
+       Rectangle(int l, int b)   //if the class members name and parameters name are same then you can access the class member by this
+       {
+           length = l;
+            breadth = b;
+       }  //we can also use default values for the parameters.
 
     3. Copy constructor -> It is a constructor which takes another object as a parameter.
-       ```
+
          Rectangle(Rectangle &r)
          {
               length = r.length;
               breadth = r.breadth;
-         } 
-       ```  
+         }   
 
         The advantage of user defined copy constructor over default copy constructor is that default copy constructor creates a shallow copy i.e both the objects 
         point to the same memory location. to make a deep copy we need to use our copy constructor. In this both variables are pointing to different memory location
         but the value are same.
         Careful with arrays or anything you are creating by pointers.
 
-- <strong>Mutators</strong> are functions which change the value of a class member.  (set length, setbreadth)   //modifying
-   <strong>Accessors</strong> are functions which return the value of a class member. (get length, get breadth)  //reading
-   <strong>Facilitators</strong> are functions which perform some operation on the class member. (int area(), int perimeter())
-   <strong>Enquiry</strong> are functions which basically tells us it is true or false. (isEmpty(), isFull(), isSquare())
-   <strong>Destructors</strong> are functions which destroy the object. (delete, delete[] )
+-> Mutators are functions which change the value of a class member.  (set length, setbreadth)   //modifying
+   Accessors are functions which return the value of a class member. (get length, get breadth)  //reading
+   Facilitators are functions which perform some operation on the class member. (int area(), int perimeter())
+   Enquiry are functions which basically tells us it is true or false. (isEmpty(), isFull(), isSquare())
+   Destructors are functions which destroy the object. (delete, delete[] )
 
-- <strong>Scope resolution operator</strong> : the scope of the function is within a class. For example you declare a function perimeter inside a class but you didn't write its body.
+-> Scope resolution operator : the scope of the function is within a class. For example you declare a function perimeter inside a class but you didn't write its body.
    So if you want to write the body or define it outside the class, you need to use scope resolution operator.
 
    for example: 
- ```
+
    class Rectangle{
       public: 
        int length;
@@ -133,27 +127,28 @@
    int Rectangle::perimeter(){                //format -> data type class name :: function name (:: == scope resolution operator)
               return 2 * (length + breadth);
    }
-   ```
    
    There is seperate machine code executed for scope resolution operator and the function body. Otherwise all the machine code will be in the main body.
    But in case of scope resolution operator, the machine code is seperate. return hoga main me wo code wha se execute hoke. 
 
--  <strong>Inline functions</strong>: The functions which expand in the same line where they are called i.e there is no seperate block. If we defined a function within a class, it is automatically inlined function. For another we can write inline in front of fnction name to make it inline. Then the machine code will be in the main function.
+-> Inline functions: The functions which expand in the same line where they are called i.e there is no seperate block. If we defined a function within a class, it 
+                     is automatically inlined function. For another we can write inline in front of fnction name to make it inline. Then the machine code will be in the main
+                     function.
 
-- Difference between Struct and Class:
+-> Difference between Struct and Class:
    1. In Struct, everyhting is public by default.
    2. In Class, we need to specify whether public or private.
    3. In C, you can't write functions inside Struct but you can write in cpp.
 
-********************************************************************************************************************************************************************
+**************************************************************************************************************************************************************************
 
-### Operator Overloading
+-> Operator Overloading
 
    CPP has the ability to provide the operators with a special meaning for a data type, this ability is known as operator overloading.
    For our own data types, we can overload the operators. 
 
    for example: we need to add two complex numbers i.e their real and imaginary part. 
-   ```
+
    class Complex{
       private: 
          int real;
@@ -186,16 +181,16 @@
         
         return 0;
    }
-   ```
 
    Now how to make this function overloading (add one) we  can change the function name of add() to operator+. 
    Then in the main body we can write a.operator+(b) and it will work. or we can simple write
 
-   ``` Complex c = a + b; //this is  called as operator overloading. ```
+   Complex c = a + b; //this is  called as operator overloading. 
         
-### <strong>Friend Operator Overloading</strong> 
-   In this a third person will add values of two person, In above we are addding c2 to c1 or c1 to c2. But here, we can pass both as parameters and return the value in c3. We can use private members of a class in friend function.
-   ```
+-> Friend Operator Overloading: In this a third person will add values of two person, In above we are addding c2 to c1 or c1 to c2. 
+                                But here, we can pass both as parameters and return the value in c3.
+                                We can use private embers of a class in friend function.
+
    class Complex{
     public: 
        int real;
@@ -231,12 +226,11 @@
 
       return 0;
    }
-   ```
 
-#### In this case no scope resolution operator is needed. 
+** In this case no scope resolution operator is needed. 
 
-### Insertion Operation Overloading
-   ```
+-> Insertion Operation Overloading
+   
    class Complex{
       private: 
          int real;
@@ -267,8 +261,6 @@
 
       return 0;
    }
-   ```
-
 
    Note: if we use void instead of ostream&(line no 246 and line no 249) then cout << c1; will work. 
          cout << c1 << endl; will not work. 
@@ -278,10 +270,9 @@
 
 *******************************************************************************************************************************************************************
 
-## Inheritance 
-   The process of creating a new class that inherits all the properties and methods from another class. So that we dont have to write the same code again and again. It can be reused.
+-> Inheritance: The process of creating a new class that inherits all the properties and methods from another class. So that we dont have to write the 
+                same code again and again. It can be reused.
 
-   ```
    class Base{
        public: 
          int x;
@@ -301,16 +292,13 @@
            cout << y << x << endl;
         }
    };
-   ```
 
-- Here Derived class inherits all the properties and methods of Base class. So we can use the properties and methods of Base class in Derived class.
-- We can't access the private members of Base class in Derived class. We need to use mutators. 
+-> Here Derived class inherits all the properties and methods of Base class. So we can use the properties and methods of Base class in Derived class.
+-> We can't access the private members of Base class in Derived class. We need to use mutators. 
 
-- If we make constructors in Base and Derived class, and then make the object of Derived class, then the object of Derived class will call the defualt constructor(always) of 
+-> If we make constructors in Base and Derived class, and then make the object of Derived class, then the object of Derived class will call the defualt constructor(always) of 
    Base class and then its constructor. Calling and executing are different things.
-   
 
-   ```
    class Base{
        public:
          Base(){
@@ -341,21 +329,17 @@
       Derived d1(10);  // First it will call default constructor of Base class and then it will call parameterised constructor of Derived class.
       return 0;
    }
-   ```
 
-- Then how to call parameterised constructor of Base class. There is a special constructor called conversion constructor. 
+-> Then how to call parameterised constructor of Base class. There is a special constructor called conversion constructor. 
 
-   ```
    Derived(int a, int x): Base(x){
       cout << a << endl;
    }
 
    Derived d1(10, 20);   // Output will be 20 and 10.
-   ```
 
-### isA or hasA 
-   
-   ```
+** isA or hasA 
+
    class Rectangle{};
 
    class Square: public Rectangle{}; // Square is a Rectangle.
@@ -364,9 +348,8 @@
       public:
        Rectangle a;  // Table has a Rectangle.
    };
-   ```
 
-### Access Specifiers -> public, private and protected.
+** Access Specifiers -> public, private and protected.
 
    You can not access members of private and protected in main function. But in case of child class, you can access members of public as well as protected. 
 
@@ -374,7 +357,7 @@
    modify to an extent only as JC has told you not to change some parts of the design. So you have acccess of public and protected members of JC. 
    If you sell MyCar to a customer, then he can modify it but to a certain extent as he/she has the permission of public parts of MyCar or JC.
 
-### Type of Inheritance
+-> Type of Inheritance
 
 1. Simple/Single Level inheritance
 
@@ -419,9 +402,8 @@
 
    You can't access members and methods of A in D class i.e we have remove ambiguity. 
 
-### Ways of Inheritance
+-> Ways of Inheritance
 
-   ```
    class A { 
       public: 
          Something;
@@ -434,7 +416,6 @@
    };
 
    class B: public/private/protected A{};
-   ```
 
    Suppose you inherit B from a class A publically then all its members will remain same i.e 
                    public A = public B 
@@ -485,7 +466,7 @@
       Up approach.
       In case of specialisation, there is first parent class(Innova) and then we add features make it specialised to a different class(fortuner). Top-Down approach.
 
-- The purpose of generalisation is to achieve polymorphism. (Generalised term -> Car but there are different brands, different design etc.)
-- The purpose of specialisation is to achieve share its features to its child classes i.e inheritance. 
+-> The purpose of generalisation is to achieve polymorphism. (Generalised term -> Car but there are different brands, different design etc.)
+-> The purpose of specialisation is to achieve share its features to its child classes i.e inheritance. 
                                          
 
