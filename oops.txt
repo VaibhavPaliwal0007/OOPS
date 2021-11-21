@@ -8,20 +8,20 @@
 4. Polymorphism
 
 
--> Abstraction is hiding the implementation details of a class. When we dont know the internal details. 
+- Abstraction is hiding the implementation details of a class. When we dont know the internal details. 
    for example -> take a TV, we don't want to know how it works, we just want to know that it is a TV. There are buttons(functions) present in the TV. We just press that 
                   button and it works.
                   Without knowing how the cout function is working, we just use it i.e a clear example of Abstraction. 
 
--> Encapsulation is the bundling of data so that users can't access raw data just operate on functions to avoid mishandling(not security). 
+- Encapsulation is the bundling of data so that users can't access raw data just operate on functions to avoid mishandling(not security). 
    for example -> You went through bank, you will take a withdrawal slip(function) not directly go to the locker and take your cash. 
    
    We don't want to modify the value thats why we bundle the data. 
 
--> Inheritance is the process of creating a new class that inherits all the properties and methods from another class.
+- Inheritance is the process of creating a new class that inherits all the properties and methods from another class.
    for example -> BMW is a car, TATA is a car, Toyota is a car, Honda is a car.
 
--> Polymorphism is the ability of an object to take on many forms.
+- Polymorphism is the ability of an object to take on many forms.
    for example -> I am driving a car, (no matter which brand) I can drive any car if i know the basic principles.
                   a man at the same time is a father, a husband, an employee. So the same person posses different behavior in different situations.
    With the help of inheritance, we achieve polymorphism.
@@ -29,7 +29,7 @@
 **************************************************************************************************************************************************************************
 
 ####  What is a Class? (User-defined data type)
--> A class is a blueprint for creating objects. A class is a collection of properties and methods.
+- A class is a blueprint for creating objects. A class is a collection of properties and methods.
 
    Suppose in a college there a students belong to varioous departments like Computer Science, Electronics, Mechanical, etc.
    Here each departments represents a class. On the broader side every student is human being which again belong to a class. 
@@ -37,11 +37,11 @@
    Therefore student is an object and human being is a class.
 
 ####  What is a Object?
--> An object is a real world entity. An object is an instance of a class.
+- An object is a real world entity. An object is an instance of a class.
 
 **************************************************************************************************************************************************************************
 
--> For accessing the members of a class we use dot operator. 
+- For accessing the members of a class we use dot operator. 
 
    Below is the small example 
 
@@ -73,7 +73,7 @@
 
 
 ####  What is constructor? 
--> A constructor is a special type of member function of a class which initializes objects of a class. Constructor is automatically called when object create. 
+- A constructor is a special type of member function of a class which initializes objects of a class. Constructor is automatically called when object create. 
    It is special member function of the class because it does not have any return type.
 
    Types of constructors:
@@ -99,13 +99,13 @@
         but the value are same.
         Careful with arrays or anything you are creating by pointers.
 
--> Mutators are functions which change the value of a class member.  (set length, setbreadth)   //modifying
+- Mutators are functions which change the value of a class member.  (set length, setbreadth)   //modifying
    Accessors are functions which return the value of a class member. (get length, get breadth)  //reading
    Facilitators are functions which perform some operation on the class member. (int area(), int perimeter())
    Enquiry are functions which basically tells us it is true or false. (isEmpty(), isFull(), isSquare())
    Destructors are functions which destroy the object. (delete, delete[] )
 
--> Scope resolution operator : the scope of the function is within a class. For example you declare a function perimeter inside a class but you didn't write its body.
+- Scope resolution operator : the scope of the function is within a class. For example you declare a function perimeter inside a class but you didn't write its body.
    So if you want to write the body or define it outside the class, you need to use scope resolution operator.
 
    for example: 
@@ -142,7 +142,7 @@
 
 **************************************************************************************************************************************************************************
 
--> Operator Overloading
+- Operator Overloading
 
    CPP has the ability to provide the operators with a special meaning for a data type, this ability is known as operator overloading.
    For our own data types, we can overload the operators. 
@@ -187,7 +187,7 @@
 
    Complex c = a + b; //this is  called as operator overloading. 
         
--> Friend Operator Overloading: In this a third person will add values of two person, In above we are addding c2 to c1 or c1 to c2. 
+- Friend Operator Overloading: In this a third person will add values of two person, In above we are addding c2 to c1 or c1 to c2. 
                                 But here, we can pass both as parameters and return the value in c3.
                                 We can use private embers of a class in friend function.
 
@@ -229,7 +229,7 @@
 
 ** In this case no scope resolution operator is needed. 
 
--> Insertion Operation Overloading
+- Insertion Operation Overloading
    
    class Complex{
       private: 
@@ -270,7 +270,7 @@
 
 *******************************************************************************************************************************************************************
 
--> Inheritance: The process of creating a new class that inherits all the properties and methods from another class. So that we dont have to write the 
+- Inheritance: The process of creating a new class that inherits all the properties and methods from another class. So that we dont have to write the 
                 same code again and again. It can be reused.
 
    class Base{
@@ -293,10 +293,10 @@
         }
    };
 
--> Here Derived class inherits all the properties and methods of Base class. So we can use the properties and methods of Base class in Derived class.
--> We can't access the private members of Base class in Derived class. We need to use mutators. 
+- Here Derived class inherits all the properties and methods of Base class. So we can use the properties and methods of Base class in Derived class.
+- We can't access the private members of Base class in Derived class. We need to use mutators. 
 
--> If we make constructors in Base and Derived class, and then make the object of Derived class, then the object of Derived class will call the defualt constructor(always) of 
+- If we make constructors in Base and Derived class, and then make the object of Derived class, then the object of Derived class will call the defualt constructor(always) of 
    Base class and then its constructor. Calling and executing are different things.
 
    class Base{
@@ -357,7 +357,7 @@
    modify to an extent only as JC has told you not to change some parts of the design. So you have acccess of public and protected members of JC. 
    If you sell MyCar to a customer, then he can modify it but to a certain extent as he/she has the permission of public parts of MyCar or JC.
 
--> Type of Inheritance
+- Type of Inheritance
 
 1. Simple/Single Level inheritance
 
@@ -402,7 +402,7 @@
 
    You can't access members and methods of A in D class i.e we have remove ambiguity. 
 
--> Ways of Inheritance
+- Ways of Inheritance
 
    class A { 
       public: 
@@ -466,7 +466,6 @@
       Up approach.
       In case of specialisation, there is first parent class(Innova) and then we add features make it specialised to a different class(fortuner). Top-Down approach.
 
--> The purpose of generalisation is to achieve polymorphism. (Generalised term -> Car but there are different brands, different design etc.)
--> The purpose of specialisation is to achieve share its features to its child classes i.e inheritance. 
+- The purpose of generalisation is to achieve polymorphism. (Generalised term -> Car but there are different brands, different design etc.)
+- The purpose of specialisation is to achieve share its features to its child classes i.e inheritance. 
                                          
-

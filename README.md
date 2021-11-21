@@ -1,21 +1,19 @@
 ## Introduction to OOPS  
 
-### Principles of Object Oriented Programming-> 
+### Principles of Object Oriented Programming
 
 1. Abstraction
 2. Encapsulation (Data hiding)
 3. Inheritance
 4. Polymorphism
 
-
+<pre>
 - <strong>Abstraction</strong> is hiding the implementation details of a class. When we dont know the internal details. 
-   for example -> take a TV, we don't want to know how it works, we just want to know that it is a TV. There are buttons(functions) present in the TV. We just press that 
-                  button and it works.
-                  Without knowing how the cout function is working, we just use it i.e a clear example of Abstraction. 
+   for example -> take a TV, we don't want to know how it works, we just want to know that it is a TV. There are buttons(functions) present in the TV. We just press that button and it works.
+   Without knowing how the cout function is working, we just use it i.e a clear example of Abstraction. 
 
 - <strong>Encapsulation</strong> is the bundling of data so that users can't access raw data just operate on functions to avoid mishandling(not security). 
    for example -> You went through bank, you will take a withdrawal slip(function) not directly go to the locker and take your cash. 
-   
    We don't want to modify the value thats why we bundle the data. 
 
 - <strong>Inheritance</strong> is the process of creating a new class that inherits all the properties and methods from another class.
@@ -25,6 +23,7 @@
    for example -> I am driving a car, (no matter which brand) I can drive any car if i know the basic principles.
                   a man at the same time is a father, a husband, an employee. So the same person posses different behavior in different situations.
    With the help of inheritance, we achieve polymorphism.
+</pre>
 
 ********************************************************************************************************************************************************************
 
@@ -39,13 +38,14 @@
 ####  What is a Object?
 - An object is a real world entity. An object is an instance of a class.
 
+
 ********************************************************************************************************************************************************************
 
-- For accessing the members of a class we use dot operator. 
+ For accessing the members of a class we use dot operator. 
 
   Below is the small example 
 
-```
+```cpp
    class Rectangle{
       public: 
        int length;
@@ -83,7 +83,7 @@
     1. Default constructor -> It is a constructor which does not have any parameter. It is also a default constructor.
 
     2. Parameterized constructor -> It is a constructor which has parameters. 
-       ```
+       ```cpp
         Rectangle(int l, int b)   //if the class members name and parameters name are same then you can access the class member by this
         {
              length = l;
@@ -92,7 +92,7 @@
        ```
 
     3. Copy constructor -> It is a constructor which takes another object as a parameter.
-       ```
+       ```cpp
          Rectangle(Rectangle &r)
          {
               length = r.length;
@@ -104,18 +104,19 @@
         point to the same memory location. to make a deep copy we need to use our copy constructor. In this both variables are pointing to different memory location
         but the value are same.
         Careful with arrays or anything you are creating by pointers.
-
+<pre>
 - <strong>Mutators</strong> are functions which change the value of a class member.  (set length, setbreadth)   //modifying
    <strong>Accessors</strong> are functions which return the value of a class member. (get length, get breadth)  //reading
    <strong>Facilitators</strong> are functions which perform some operation on the class member. (int area(), int perimeter())
    <strong>Enquiry</strong> are functions which basically tells us it is true or false. (isEmpty(), isFull(), isSquare())
    <strong>Destructors</strong> are functions which destroy the object. (delete, delete[] )
+</pre>
 
 - <strong>Scope resolution operator</strong> : the scope of the function is within a class. For example you declare a function perimeter inside a class but you didn't write its body.
    So if you want to write the body or define it outside the class, you need to use scope resolution operator.
 
    for example: 
- ```
+ ```cpp
    class Rectangle{
       public: 
        int length;
@@ -137,12 +138,13 @@
    
    There is seperate machine code executed for scope resolution operator and the function body. Otherwise all the machine code will be in the main body.
    But in case of scope resolution operator, the machine code is seperate. return hoga main me wo code wha se execute hoke. 
-
+<pre>
 -  <strong>Inline functions</strong>: The functions which expand in the same line where they are called i.e there is no seperate block. If we defined a function within a class, it is automatically inlined function. For another we can write inline in front of fnction name to make it inline. Then the machine code will be in the main function.
+</pre>
 
 - Difference between Struct and Class:
    1. In Struct, everyhting is public by default.
-   2. In Class, we need to specify whether public or private.
+   2. In Class, we need to specify whether public or private. (only this much difference)
    3. In C, you can't write functions inside Struct but you can write in cpp.
 
 ********************************************************************************************************************************************************************
@@ -153,7 +155,7 @@
    For our own data types, we can overload the operators. 
 
    for example: we need to add two complex numbers i.e their real and imaginary part. 
-   ```
+   ```cpp
    class Complex{
       private: 
          int real;
@@ -195,7 +197,7 @@
         
 ### <strong>Friend Operator Overloading</strong> 
    In this a third person will add values of two person, In above we are addding c2 to c1 or c1 to c2. But here, we can pass both as parameters and return the value in c3. We can use private members of a class in friend function.
-   ```
+   ```cpp
    class Complex{
     public: 
        int real;
@@ -236,7 +238,7 @@
 #### In this case no scope resolution operator is needed. 
 
 ### Insertion Operation Overloading
-   ```
+   ```cpp
    class Complex{
       private: 
          int real;
@@ -269,19 +271,19 @@
    }
    ```
 
-
+<pre>
    Note: if we use void instead of ostream&(line no 246 and line no 249) then cout << c1; will work. 
          cout << c1 << endl; will not work. 
 
          As in case of ostream in cout << c1 << endl; operator<<(cout, c1) will return another cout which will interact with endl.
          but in case of void function it will return nothing. Therefore an error will come. That's why it is healthier to use ostream type instead of void type.
-
+</pre>
 *******************************************************************************************************************************************************************
 
 ## Inheritance 
    The process of creating a new class that inherits all the properties and methods from another class. So that we dont have to write the same code again and again. It can be reused.
 
-   ```
+   ```cpp
    class Base{
        public: 
          int x;
@@ -302,15 +304,15 @@
         }
    };
    ```
-
+<pre>
 - Here Derived class inherits all the properties and methods of Base class. So we can use the properties and methods of Base class in Derived class.
 - We can't access the private members of Base class in Derived class. We need to use mutators. 
 
 - If we make constructors in Base and Derived class, and then make the object of Derived class, then the object of Derived class will call the defualt constructor(always) of 
    Base class and then its constructor. Calling and executing are different things.
-   
+ </pre>
 
-   ```
+   ```cpp
    class Base{
        public:
          Base(){
@@ -345,7 +347,7 @@
 
 - Then how to call parameterised constructor of Base class. There is a special constructor called conversion constructor. 
 
-   ```
+   ```cpp
    Derived(int a, int x): Base(x){
       cout << a << endl;
    }
@@ -355,7 +357,7 @@
 
 ### isA or hasA 
    
-   ```
+   ```cpp
    class Rectangle{};
 
    class Square: public Rectangle{}; // Square is a Rectangle.
@@ -366,16 +368,16 @@
    };
    ```
 
-### Access Specifiers -> public, private and protected.
-
+### Access Specifiers --- (public, private and protected).
+<pre>
    You can not access members of private and protected in main function. But in case of child class, you can access members of public as well as protected. 
 
    Take an example of Car(JC). Suppose you(MyCar) inherited the design from JC, So JC gives you the design of MyCar, you can add features to it, modify it but you can 
    modify to an extent only as JC has told you not to change some parts of the design. So you have acccess of public and protected members of JC. 
    If you sell MyCar to a customer, then he can modify it but to a certain extent as he/she has the permission of public parts of MyCar or JC.
-
-### Type of Inheritance
-
+</pre>
+###  Type of Inheritance
+<pre>
 1. Simple/Single Level inheritance
 
    Rectangle <- Cuboid
@@ -418,10 +420,11 @@
    class D : public B, public C{};
 
    You can't access members and methods of A in D class i.e we have remove ambiguity. 
+</pre>
 
 ### Ways of Inheritance
 
-   ```
+   ```cpp
    class A { 
       public: 
          Something;
@@ -435,7 +438,7 @@
 
    class B: public/private/protected A{};
    ```
-
+<pre>
    Suppose you inherit B from a class A publically then all its members will remain same i.e 
                    public A = public B 
                    private A = private B
@@ -450,12 +453,13 @@
                   public A = private B
                   private A = private B
                   protected A = private B
+   </pre>
          
    This is a very special feature given in cpp which is not presented in Java. As suppose you inherit Class C from class B (private from class A)
    then you can't access members of class B as all the members are private. 
 
    ### Generalisation Vs Specialisation 
-
+<pre>
        Rectangle <- Cuboid // Basically Cuboid is a Specialisation of Rectangle. Both exist in real world. 
        Innova <- Fortuner // Fortuner is a specialisation of Innova with more added features. Both exist in real world.    
 
@@ -484,8 +488,8 @@
       Notice in generalisation, all the derived classes are existing in real world, but we have just given them common terms and give them a common class i.e Bottom to 
       Up approach.
       In case of specialisation, there is first parent class(Innova) and then we add features make it specialised to a different class(fortuner). Top-Down approach.
-
-- The purpose of generalisation is to achieve polymorphism. (Generalised term -> Car but there are different brands, different design etc.)
-- The purpose of specialisation is to achieve share its features to its child classes i.e inheritance. 
-                                         
+</pre>
+- <strong>The purpose of generalisation is to achieve polymorphism. (Generalised term -> Car but there are different brands, different design etc.)</strong>
+- <strong>The purpose of specialisation is to achieve share its features to its child classes i.e inheritance.</strong>
+                                 
 
