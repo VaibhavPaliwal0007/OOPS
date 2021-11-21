@@ -492,4 +492,50 @@
 - <strong>The purpose of generalisation is to achieve polymorphism. (Generalised term -> Car but there are different brands, different design etc.)</strong>
 - <strong>The purpose of specialisation is to achieve share its features to its child classes i.e inheritance.</strong>
                                  
+### Base Class pointer Derived Class Object
 
+   <strong>In Cpp it is possible we can assign a pointer of a base class to the derived class object i.e </strong>
+    
+   ```cpp
+    class Base{
+        public:
+          somethingofBaseClass();
+    };
+
+    class Derived{
+         public:
+           somethingofDerivedClass();
+    };
+
+    int main()
+    {
+        Base* b = new Derived();      
+
+        b->somethingofBaseClass();   //This is valid
+        b->somethingofDerivedClass(); //This is not valid
+        return 0;
+
+        // or you can also write 
+        Derived a;
+        Base* b = &a; 
+
+        b->somethingofBaseClass();   //This is valid
+        b->somethingofDerivedClass(); //This is not valid
+
+        return 0;
+    }  
+   ``` 
+   
+  
+-  Yes it is possible but we can only access to the member and functions of base class only. You can have a base class pointer and have derived class object But
+   you can't call the derived class functions. 
+   Suppose you derive an advanced car from basic car and then 
+<pre>
+
+                                       BasicCar* Car = new AdvancedCar(); 
+</pre>
+
+-  So is the advanced Car a basic car? Yes it is. As it has inherited but can you call the advanced car functions as well? No. You can't. 
+
+-  But what if you take a derived class pointer and point it towards the base class object?
+   No you can't. As the basic car can't performs the advanced car functions. 
