@@ -190,7 +190,7 @@
    }
    ```
 
-   Now how to make this function overloading (add one) we  can change the function name of add() to operator+. 
+   Now how to make this operator overloading (add one) we  can change the function name of add() to operator+. 
    Then in the main body we can write a.operator+(b) and it will work. or we can simple write
 
    ``` Complex c = a + b; //this is  called as operator overloading. ```
@@ -530,12 +530,221 @@
 -  Yes it is possible but we can only access to the member and functions of base class only. You can have a base class pointer and have derived class object But
    you can't call the derived class functions. 
    Suppose you derive an advanced car from basic car and then 
-<pre>
 
                                        BasicCar* Car = new AdvancedCar(); 
-</pre>
 
 -  So is the advanced Car a basic car? Yes it is. As it has inherited but can you call the advanced car functions as well? No. You can't. 
 
 -  But what if you take a derived class pointer and point it towards the base class object?
    No you can't. As the basic car can't performs the advanced car functions. 
+
+### Function Overloading
+
+- Same function name, but different arguments. The compiler will check the arguments and decide which function to call.
+
+  class Rectangle{
+     private:
+        int length;
+        int width;
+     public:
+        void setDimension(int l, int w)
+        {
+            length = l;
+            width = w;
+        }
+
+        void setDimension(int a)
+        {
+            length = a;
+            width = a;
+        }
+  };
+
+  int main()
+  {
+      Rectangle r;
+
+      r.setDimension(10, 20);
+      r.setDimension(30);
+
+      return 0;
+  }
+
+
+### Function Overriding
+
+- Redefining a function of a parent class in a child class. 
+  It means that you can redefine a function in a derived class and it will be called instead of the function of the parent class.
+
+  for example: 
+
+  class Parent{
+      public:
+        void display(){
+          cout << "Parent" << endl;
+        }
+  };
+
+  class Child: public Parent{
+      public:
+        void display(){
+          cout << "Child" << endl;
+        }
+  };
+  
+  int main()
+  {
+      Child c; 
+      
+      c.display(); // Child   // This is called function overriding.
+      
+      return 0;
+  }
+  
+  - The parameters should be same in both parent and child class. If not an error will persuade. 
+  - If you have the same function name in both parent and child and you want to call parent class. You can by 
+
+    class Parent{
+      public:
+        void display(){
+          cout << "Parent" << endl;
+        }
+    };
+
+    class Child: public Parent{
+      public:
+        void display(int x){
+          cout << "Child" << endl;
+        }
+    };
+
+    int main()
+    {
+        Child c;
+
+        c.display();  // it will throw an error 
+
+        // if you want to call parent class function you can do 
+        c.Parent::display();  //output -> parent
+
+        return 0;  
+    }
+
+
+-> Function overriding in base class pointer derived class object 
+
+-  base class function will be called as it depends on the pointer(because in compile time you can't tell from the address as the memory will be allocated on runtime).
+   If the pointer is of base class then the base class function will be called no matter the object.
+
+   class Base{
+      public:
+        void display(){
+          cout << "Base" << endl;
+        }
+    };
+
+    class Derived: public Base{
+      public:
+        void display(){
+            cout << "Derived" << endl;
+         }
+     };
+
+     int main()
+     {
+         Base* b = new Derived();
+
+         b->display(); // Base // Base class function will be called.
+
+         return 0;
+     }
+
+-  If you want to call the derived class function in above case then you can use virtual function. 
+   
+   class Base{
+      public:
+        virtual void display(){
+          cout << "Base" << endl;
+        }
+    };
+
+    class Derived: public Base{
+      public:
+        void display(){
+            cout << "Derived" << endl;
+         }
+     };
+
+     int main()
+     {
+         Base* b = new Derived();  // or Derived d;  Base* b = &d;
+
+         b->display(); // Derived // Derived class function will be called.
+
+         return 0;
+     }
+
+     What is virtual keyword? 
+     It is a keyword to tell the compiler to bind it lately usually on runtime. So that function overrriding can happen and the child class function will be called.
+
+
+## Polymorphism
+
+- When one thing has many forms, it is known as polymorphism. 
+
+1. Do what is right* for your career.
+2. Head towards right* of Delhi.
+3. Fight for your right*.
+
+- In the above example, there is right word used in every sentence but it has different meanings. This is called polymorphism. 
+
+  Example: 
+  ```cpp
+  int main()
+  {
+      int a = 10; 
+      float b = 10.5;
+
+      cout << a << '\n';
+      cout << b << '\n';
+
+      return 0;
+  }
+  ```
+
+- here the << is showing polymorphism as it is showing for int data type as well as float data type. So in the << different functions are defined for
+  different data types.
+
+  ```cpp
+  class Shapes{
+      public:
+        virtual void draw() = 0;  //pure virtual function
+  };
+
+   class Circle: public Shapes{
+         public:
+         void draw(){
+            cout << "Circle" << endl;
+         }
+   };
+
+   class Rectangle: public Shapes{
+         public:
+         void draw(){
+            cout << "Rectangle" << endl;
+         }
+   };
+
+   int main()
+   {
+         Shapes* s = new Circle();
+         s->draw(); // Circle
+   
+         s = new Rectangle();
+         s->draw(); // Rectangle
+
+         return 0;
+   }
+   ```
+
+   - same functions but due to function overriding the output is different, also a type of polymorphism
