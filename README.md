@@ -748,3 +748,72 @@
    ```
 
    - same functions but due to function overriding the output is different, also a type of polymorphism
+
+    A do nothing function is called a pure virtual function. Any class which contains atleast one pure virtual function is called an abstract class. We can not instantiate
+  an abstract class i.e 
+
+```cpp
+  class AbstractClass{
+    public: 
+      int a = 10;
+
+      virtual void f() = 0;
+      void display(){
+        cout << a << endl;
+      }
+ };
+
+class DerivedClass{
+    public:
+      int b = 20;
+
+      void f(){
+        cout << b << endl;
+      }
+};
+
+int main()
+{
+    AbstractClass a; //it will throw an error. 
+
+    a.display();
+
+    return 0; 
+}
+```
+
+
+#### Why abstract class?
+<pre>
+- We should do generalisation(an object Oriented principle). Suppose there are two classes which share common properties.
+  So we can create a base class(thereby less code) and derive two classes from it which can be termed as generalisation but we are not interested in the base class. 
+  So base classes is good as less maintainence, less code, good structured code, but we don't want to create its seperate object. That's why we make the base class
+  abstract. 
+</pre>
+### Abstraction 
+
+- It is a process of hiding the sensitive details of a class. It only shows the essential details.
+
+   ```cpp
+   class Any{
+      private:
+         int a = 10;
+
+      public:
+         void display(){
+            cout << a << endl;
+         }
+   };
+   
+   int main()
+   {
+      Any x;
+      x.display(); // 10
+
+      cout << x.a << endl; // you can't access the private variable of the class. 
+
+      return 0;
+   }
+   ```
+
+- In the above example sensitive details are hidden. 
